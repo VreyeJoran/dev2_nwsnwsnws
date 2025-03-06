@@ -1,5 +1,9 @@
-<h2>News articles:</h2>
+<h2><%= title %></h2>
 
-<% news.forEach(newsItem => { %>
-    <a href="/news/<%= newsItem.slug %>"><%= newsItem.title %> <br></a>
-<% }) %>
+<% if( news.length === 0 ) { %>
+  <p>Er is geen nieuws beschikbaar</p>
+<% } else { %>
+    <% news.forEach((item) => { %>
+        <a href="/news/<%= item.slug %>"><%= item.title %> <br></a>
+    <% }) %>
+<% } %>

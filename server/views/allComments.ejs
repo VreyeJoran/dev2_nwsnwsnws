@@ -1,0 +1,9 @@
+<h2><%= title %></h2>
+
+<% if( comments.length === 0 ) { %>
+  <p>Er zijn geen comments beschikbaar</p>
+<% } else { %>
+    <% comments.forEach((item) => { %>
+        <p>Comment on article <%= item.news_id %>: <%= item.comment %></p>
+    <% }) %>
+<% } %>

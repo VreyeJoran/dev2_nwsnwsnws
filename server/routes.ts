@@ -1,5 +1,6 @@
 import express, { Request, Response, Router } from "express";
 import { News, getAllNews, getNewsBySlug, addNewsItem } from "./services/newsService";
+import { Comments, getAllComments } from "./services/commentsService";
 
 const router: Router = express.Router();
 
@@ -22,6 +23,12 @@ router.get("/", async (req: Request, res: Response) => {
   const news: News[] = await getAllNews();
 
   res.render("index", { news, title: "Recent news" });
+});
+
+router.get("/allComments", async (req: Request, res: Response) => {
+  const comments: Comments[] = await getAllComments();
+
+  res.render("allComments", { comments, title: "All comments" });
 });
 
 router.get("/news/:slug", async (req: Request, res: Response) => {
